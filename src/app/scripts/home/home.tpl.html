@@ -1,0 +1,19 @@
+<md-content>
+	<md-list>
+
+		<md-list-item 
+			ng-repeat="project in vm.projects" 
+			class="md-2-line"
+			ng-click="openProject(project.id)">
+
+			<md-icon md-svg-icon="communication:phone" class="md-avatar-icon"></md-icon>
+			<div class="md-list-item-text" layout="column">
+				<h3>{{ project.name }}</h3>
+				<p>{{ project.id }}</p>
+			</div>
+
+		</md-list-item>
+
+	</md-list>
+</md-content>
+
