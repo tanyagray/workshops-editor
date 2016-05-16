@@ -34,6 +34,7 @@
 					console.log("controller:activate (should be last)");
 
 					$scope.$apply(function(){
+						project.projectId = projectId;
 			        	vm.project = project;
 			        });
 				});
@@ -43,11 +44,11 @@
 
 		/////////////////////////////
 
-		
+
 
 		$scope.openCourse = function(courseId) {
-			console.log('open ' + projectId);
-			$location.path('/projects/' + projectId + '/' + courseId);
+			console.log('open ' + vm.project.projectId);
+			$location.path('/projects/' + vm.project.projectId + '/' + courseId);
 		};
 
 	}

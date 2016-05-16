@@ -35,11 +35,20 @@ angular.module('angular-app').run(['$templateCache', function($templateCache) { 
 
   $templateCache.put('/src/app/scripts/project/project.tpl.html',
     "<md-content>\n" +
-    "	Title: {{ vm.project.frontMatter.title }}\n" +
-    "	<br>\n" +
-    "	Project: {{ vm.project }}\n" +
-    "	<br>\n" +
-    "	Content: {{ vm.project.content }}\n" +
+    "\n" +
+    "\n" +
+    "\n" +
+    "	<form name=\"projectForm\" layout-padding>\n" +
+    "\n" +
+    "		<md-input-container class=\"md-block\">\n" +
+    "	      	<label>Title</label>\n" +
+    "	      	<input ng-model=\"vm.project.frontMatter.title\" type=\"text\">\n" +
+    "	    </md-input-container>\n" +
+    "\n" +
+    "	</form>\n" +
+    "\n" +
+    "\n" +
+    "\n" +
     "\n" +
     "	<md-list>\n" +
     "\n" +
@@ -50,13 +59,16 @@ angular.module('angular-app').run(['$templateCache', function($templateCache) { 
     "\n" +
     "			<md-icon md-svg-icon=\"communication:phone\" class=\"md-avatar-icon\"></md-icon>\n" +
     "			<div class=\"md-list-item-text\" layout=\"column\">\n" +
-    "				<h3>Title: {{ course.title }}</h3>\n" +
-    "				<p>id: {{ course.id }}</p>\n" +
+    "				<h3>{{ course.title }}</h3>\n" +
+    "				<p>{{ course.name }}</p>\n" +
     "			</div>\n" +
     "\n" +
     "		</md-list-item>\n" +
     "\n" +
     "	</md-list>\n" +
+    "\n" +
+    "\n" +
+    "\n" +
     "\n" +
     "</md-content>\n"
   );

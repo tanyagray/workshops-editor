@@ -1,9 +1,18 @@
 <md-content>
-	Title: {{ vm.project.frontMatter.title }}
-	<br>
-	Project: {{ vm.project }}
-	<br>
-	Content: {{ vm.project.content }}
+
+
+
+	<form name="projectForm" layout-padding>
+
+		<md-input-container class="md-block">
+	      	<label>Title</label>
+	      	<input ng-model="vm.project.frontMatter.title" type="text">
+	    </md-input-container>
+
+	</form>
+
+
+
 
 	<md-list>
 
@@ -14,12 +23,15 @@
 
 			<md-icon md-svg-icon="communication:phone" class="md-avatar-icon"></md-icon>
 			<div class="md-list-item-text" layout="column">
-				<h3>Title: {{ course.title }}</h3>
-				<p>id: {{ course.id }}</p>
+				<h3>{{ course.title }}</h3>
+				<p>{{ course.name }}</p>
 			</div>
 
 		</md-list-item>
 
 	</md-list>
+
+
+
 
 </md-content>
