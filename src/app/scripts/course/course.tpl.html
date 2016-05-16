@@ -1,0 +1,42 @@
+<md-content>
+
+
+
+	<form name="courseForm" layout-padding>
+
+		<md-input-container class="md-block">
+	      	<label>Title</label>
+	      	<input ng-model="vm.course.frontMatter.title" type="text">
+	    </md-input-container>
+
+	    <md-input-container class="md-block">
+	      	<label>Description</label>
+	      	<input ng-model="vm.course.frontMatter.description" type="text">
+	    </md-input-container>
+
+	</form>
+
+
+
+
+	<md-list>
+
+		<md-list-item 
+			ng-repeat="chapter in vm.course.frontMatter.chapters" 
+			class="md-2-line"
+			ng-click="openChapter(chapter.name)">
+
+			<md-icon md-svg-icon="communication:phone" class="md-avatar-icon"></md-icon>
+			<div class="md-list-item-text" layout="column">
+				<h3>{{ chapter.title }}</h3>
+				<p>{{ chapter.name }}</p>
+			</div>
+
+		</md-list-item>
+
+	</md-list>
+
+
+
+
+</md-content>

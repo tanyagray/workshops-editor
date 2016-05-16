@@ -17,8 +17,8 @@ ususaly used for API calls like list, save etc
 		const fsp = require('fs-promise');
 		const yaml = require('node-yaml');
 
-		var projectFilePath = '/Users/Tanya/Gather/digital-media/index.html';
-		var coursesPath = '/Users/Tanya/Gather/{ProjectId}/courses';
+		// where 0=project
+		var projectLocation = '/Users/Tanya/Gather/{0}';
 
 		var service = {
 			loadProject: loadProject
@@ -39,10 +39,13 @@ ususaly used for API calls like list, save etc
 		Loads the project info from its index page,
 		which is a Jekyll doc with YAML front matter.
 		*/
-		function loadProject(){
+		function loadProject(project){
+
+			var projectDirectory = projectLocation.format(project.id);
+			var projectDataFile = projectDirectory + '/index.html';
 
 			// load the file
-			return fsp.readFile(projectFilePath, 'utf8')
+			return fsp.readFile(projectDataFile, 'utf8')
 				.then(createProjectFromFile)
 				.then(parseFrontMatter)
 				.catch(error);
@@ -56,10 +59,8 @@ ususaly used for API calls like list, save etc
 				var fileParts = fileString.split('---\n');
 
 				// fileParts[0] is an empty string
-				var project = {
-					frontMatter: fileParts[1],
-					content: fileParts[2]
-				};
+				project.frontMatter = fileParts[1];
+				project.content = fileParts[2];
 
 				return project;
 			}

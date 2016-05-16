@@ -14,7 +14,8 @@ is in sub-modules under this.
 			'ngAnimate',
 			'ngMessages',
 			'angular-app.home',
-			'angular-app.project'
+			'angular-app.project',
+			'angular-app.course'
 		]);
 
 })();

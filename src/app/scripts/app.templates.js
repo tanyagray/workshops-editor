@@ -10,6 +10,52 @@
 
 angular.module('angular-app').run(['$templateCache', function($templateCache) {  'use strict';
 
+  $templateCache.put('/src/app/scripts/course/course.tpl.html',
+    "<md-content>\n" +
+    "\n" +
+    "\n" +
+    "\n" +
+    "	<form name=\"courseForm\" layout-padding>\n" +
+    "\n" +
+    "		<md-input-container class=\"md-block\">\n" +
+    "	      	<label>Title</label>\n" +
+    "	      	<input ng-model=\"vm.course.frontMatter.title\" type=\"text\">\n" +
+    "	    </md-input-container>\n" +
+    "\n" +
+    "	    <md-input-container class=\"md-block\">\n" +
+    "	      	<label>Description</label>\n" +
+    "	      	<input ng-model=\"vm.course.frontMatter.description\" type=\"text\">\n" +
+    "	    </md-input-container>\n" +
+    "\n" +
+    "	</form>\n" +
+    "\n" +
+    "\n" +
+    "\n" +
+    "\n" +
+    "	<md-list>\n" +
+    "\n" +
+    "		<md-list-item \n" +
+    "			ng-repeat=\"chapter in vm.course.frontMatter.chapters\" \n" +
+    "			class=\"md-2-line\"\n" +
+    "			ng-click=\"openChapter(chapter.name)\">\n" +
+    "\n" +
+    "			<md-icon md-svg-icon=\"communication:phone\" class=\"md-avatar-icon\"></md-icon>\n" +
+    "			<div class=\"md-list-item-text\" layout=\"column\">\n" +
+    "				<h3>{{ chapter.title }}</h3>\n" +
+    "				<p>{{ chapter.name }}</p>\n" +
+    "			</div>\n" +
+    "\n" +
+    "		</md-list-item>\n" +
+    "\n" +
+    "	</md-list>\n" +
+    "\n" +
+    "\n" +
+    "\n" +
+    "\n" +
+    "</md-content>\n"
+  );
+
+
   $templateCache.put('/src/app/scripts/home/home.tpl.html',
     "<md-content>\n" +
     "	<md-list>\n" +
@@ -55,7 +101,7 @@ angular.module('angular-app').run(['$templateCache', function($templateCache) { 
     "		<md-list-item \n" +
     "			ng-repeat=\"course in vm.project.frontMatter.courses\" \n" +
     "			class=\"md-2-line\"\n" +
-    "			ng-click=\"openCourse(course.id)\">\n" +
+    "			ng-click=\"openCourse(course.name)\">\n" +
     "\n" +
     "			<md-icon md-svg-icon=\"communication:phone\" class=\"md-avatar-icon\"></md-icon>\n" +
     "			<div class=\"md-list-item-text\" layout=\"column\">\n" +

@@ -5,9 +5,9 @@
 	angular.module('angular-app.project')
 		.controller('projectController', projectController);
 
-	projectController.$inject = ['projectService', '$scope', '$routeParams'];
+	projectController.$inject = ['projectService', '$scope', '$location'];
 
-	function projectController(projectService, $scope, $routeParams) {
+	function projectController(projectService, $scope, $location) {
 
 		/* jshint validthis:true */
 		var vm = this;
@@ -25,18 +25,18 @@
 		function activate() {
 
 			// get the project id from the url
-			var projectId = $routeParams.param;
+			vm.project = {
+				id: $location.search().projectId
+			};
 
-			// load the project using its ID
-			projectService.loadProject(projectId)
+			// load the project using its known data
+			projectService.loadProject(vm.project)
 				.then(function(project) {
 
-					console.log("controller:activate (should be last)");
-
 					$scope.$apply(function(){
-						project.projectId = projectId;
 			        	vm.project = project;
 			        });
+			        
 				});
 		}
 
@@ -47,8 +47,14 @@
 
 
 		$scope.openCourse = function(courseId) {
-			console.log('open ' + vm.project.projectId);
-			$location.path('/projects/' + vm.project.projectId + '/' + courseId);
+			
+			var params = {
+				projectId: vm.project.id,
+				courseId: courseId
+			};
+
+			$location.path('/course')
+				.search(params);
 		};
 
 	}

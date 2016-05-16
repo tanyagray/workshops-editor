@@ -32,8 +32,12 @@
 		/////////////////////////////
 
 		$scope.openProject = function(projectId) {
-			console.log('open ' + projectId);
-			$location.path('/projects/' + projectId);
+			var params = { 
+				projectId: projectId 
+			};
+
+			$location.path('/project')
+				.search(params);
 		};
 
 	}
